@@ -9,7 +9,9 @@ function Navigation(){
         <nav>
         <div style="flex:1; ">
           <input class="search-input" />
-          <button class="search-btn"><i class="fa fa-search"></i></button>
+          <button class="search-btn">
+            <i class="fa fa-search"></i>
+          </button>
 
           <button class="temp-switch">
             <i
