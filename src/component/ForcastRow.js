@@ -4,13 +4,13 @@ import React from 'react';
 
 function ForcastRow (props){
     return(
-    <div class="weather-forecast__row">
-        <span class="weather-forecast__day">{this.props.day}</span>
-        <span class="weather-forecast__icon">
-          <i class="fa fa-clock-o"></i> {this.props.time}
+    <div className="weather-forecast__row">
+        <span className="weather-forecast__day">{props.day}</span>
+        <span className="weather-forecast__icon">
+          <i className="fa fa-clock-o"></i> {props.time}
         </span>
-        <span class="weather-forecast__high">{this.props.high}</span>
-        <span class="weather-forecast__low">{this.props.low}</span>
+        <span className="weather-forecast__high">{props.high}</span>
+        <span className="weather-forecast__low">{props.low}</span>
       </div>
         
     )

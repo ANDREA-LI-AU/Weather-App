@@ -1,37 +1,54 @@
 import React from 'react';
-import ForcastSwitch from './ForecastSwitch';
 import ForcastRow from './ForcastRow';
 
 
-function WeatherForecast(){
-    return(
-        <section class = "weather-forecast">
-        <div class="forecast__switch">
-        <button class="forecast__switch_0 switch-active">5 items</button>
-        <button class="forecast__switch_1">10 items</button>
-        </div>
-        <ForcastRow 
-        day = 'Fri'
-        high = '19 c'
-        low = '8 c'
-        time = '10:00'
-        />
-        <ForcastRow 
-        day = 'Fri'
-        high = '19 c'
-        low = '8 c'
-        time = '13:00'
-        />
-        <ForcastRow 
-        day = 'Fri'
-        high = '19 c'
-        low = '8 c'
-        time = '16:00'
-        />
-        </section>
-    );
+class WeatherForecast extends React.Component {
+    state = {
+        forecasts:[
+            {
+            day: 'Fri',
+            high: '19 c',
+            low:'8 c',
+            time:'10:00'
+            },{
+                day: 'Sat',
+                high: '19 c',
+                low:'8 c',
+                time:'10:00'
+                },{
+                    day: 'Sun',
+                    high: '19 c',
+                    low:'8 c',
+                    time:'10:00'
+                    }
+        ]
+    }
 
 
+    render(){
+        return(
+            <section className = "weather-forecast">
+            <div className="forecast__switch">
+                <button className="forecast__switch_0 switch-active">5 items</button>
+                <button className="forecast__switch_1">10 items</button>
+            </div>
+            {
+                this.state.forecasts.map(forecast  => (
+                        <ForcastRow 
+                            key = {forecast.day + forecast.time}
+                            day = {forecast.day}
+                            high= {forecast.high}
+                            low = {forecast.low}
+                            time= {forecast.time}
+
+                        />
+                ))
+            }
+            </section>
+        );
+
+
+    }
 }
 
 export default WeatherForecast;
