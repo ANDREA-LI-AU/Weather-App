@@ -4,23 +4,25 @@ import ForcastRow from './ForcastRow';
 
 class WeatherForecast extends React.Component {
     state = {
-        forecasts:[
+        forecasts:[ 
             {
             day: 'Fri',
             high: '19 c',
             low:'8 c',
             time:'10:00'
-            },{
-                day: 'Sat',
-                high: '19 c',
-                low:'8 c',
-                time:'10:00'
-                },{
-                    day: 'Sun',
-                    high: '19 c',
-                    low:'8 c',
-                    time:'10:00'
-                    }
+            },
+            {
+            day: 'Sat',
+            high: '19 c',
+            low:'8 c',
+            time:'10:00'
+            },
+            {
+            day: 'Sun',
+            high: '19 c',
+            low:'8 c',
+            time:'10:00'
+            }
         ]
     }
 
