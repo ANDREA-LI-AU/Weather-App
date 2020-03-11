@@ -1,31 +1,34 @@
 import React from 'react';
 import ForcastRow from './ForcastRow';
-
+import axios from 'axios';
+import { format } from 'date-fns';
 
 class WeatherForecast extends React.Component {
     state = {
-        forecasts:[ 
-            {
-            day: 'Fri',
-            high: '19 c',
-            low:'8 c',
-            time:'10:00'
-            },
-            {
-            day: 'Sat',
-            high: '19 c',
-            low:'8 c',
-            time:'10:00'
-            },
-            {
-            day: 'Sun',
-            high: '19 c',
-            low:'8 c',
-            time:'10:00'
-            }
-        ]
+        forecasts:[ ]
     }
 
+    componentDidMount(){
+        //加载，发请求
+        axios.get('https://jr-weather-api.herokuapp.com/api/weather?city=brisbane&&cc=au')
+            .then(response => {
+                const rawforecasts = response.data.data.forecast.slice(0, 10);
+                const forecasts = rawforecasts.map(rawforecasts =>{
+                    const date = new Date(rawforecasts.time*1000);
+                    const day = format(date, 'EEE');
+                    const time = format(date, 'HH:mm');
+                    return{
+                        ...rawforecasts, 
+                        day,
+                        time 
+                    }
+                })
+                this.setState({forecasts});
+                console.log(forecasts);
+            }
+            )
+
+    }
 
     render(){
         return(
@@ -39,8 +42,8 @@ class WeatherForecast extends React.Component {
                         <ForcastRow 
                             key = {forecast.day + forecast.time}
                             day = {forecast.day}
-                            high= {forecast.high}
-                            low = {forecast.low}
+                            high= {forecast.maxCelsius + ' c'} 
+                            low = {forecast.minCelsius + ' c'}
                             time= {forecast.time}
 
                         />
