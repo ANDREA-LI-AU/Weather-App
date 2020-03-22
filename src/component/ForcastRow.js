@@ -12,7 +12,6 @@ function ForcastRow (props){
         <span className="weather-forecast__high">{props.high}</span>
         <span className="weather-forecast__low">{props.low}</span>
       </div>
-        
     )
 
 }

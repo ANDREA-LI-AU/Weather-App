@@ -4,13 +4,19 @@
 import React from 'react';
 
 
-function Navigation(){
+function Navigation(props){
     return (
         <nav>
         <div //style="flex:1; "
         >
-          <input className="search-input" />
-          <button className="search-btn">
+          <input 
+          value={props.searchValue}
+          onChange={props.handleSearchValueChange} 
+          className="search-input" 
+          />
+          <button 
+          onClick={props.search}
+           className="search-btn">
             <i className="fa fa-search"></i>
           </button>
 
@@ -20,7 +26,7 @@ function Navigation(){
               aria-hidden="true"
               //style="padding-right:5px"
             ></i>
-            <sup>&deg;</sup>C
+            <sup>&deg;</sup> {props.unit}
           </button>
         </div>
       </nav>

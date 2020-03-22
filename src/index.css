@@ -81,6 +81,7 @@ nav {
   width: 180px;
 }
 .search-btn {
+  z-index: 1;
   border: none;
   background-color: transparent;
   cursor: pointer;
