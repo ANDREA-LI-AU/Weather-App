@@ -89,13 +89,18 @@ search = async () => {
   
 }
 
-toggleDegree
+toggleDegree = () =>{
+  this.state.unit === 'C' 
+  ?  this.setState({ unit : 'F' })
+  :  this.setState( { unit: 'C'});
+}
 
   render(){
     return(
       <div className="weather-channel__container">
       <Header/>
       <Navigation 
+        toggleDegree = {this.toggleDegree}
         unit = {this.state.unit}
         search = {this.search}
         searchValue = {this.state.searchValue}

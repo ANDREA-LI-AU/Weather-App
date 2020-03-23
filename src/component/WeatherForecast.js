@@ -6,6 +6,8 @@ class WeatherForecast extends React.Component {
     render(){
         const { limit, unit } = this.props;
         const forecasts = this.props.forecasts.slice(0, limit);
+        
+
         return(
             <section className = "weather-forecast">
             <div className="forecast__switch">
@@ -24,16 +26,32 @@ class WeatherForecast extends React.Component {
                     </button>
             </div>
             {
-                forecasts.map(forecast  => (
-                        <ForcastRow 
-                            key = {forecast.day + forecast.time}
-                            day = {forecast.day}
-                            high= {forecast.maxCelsius + ` ${unit}`} 
-                            low = {forecast.minCelsius + ` ${unit}`}
-                            time= {forecast.time}
+                forecasts.map(forecast =>{
 
+                    const temperatureHigh = 
+                    unit === 'C' ? forecast.maxCelsius : forecast.maxFahrenheit;
+                    const temperatureLow = 
+                    unit === 'C' ? forecast.minCelsius : forecast.minFahrenheit;
+                    const key = forecast.day + forecast.time;
+                    const day = forecast.day;
+                    const time = forecast.time; 
+                    return(
+                        <ForcastRow 
+                            key = {key}
+                            day = {day}
+                            high= {temperatureHigh + ` ${unit}`} 
+                            low = {temperatureLow + ` ${unit}`}
+                            time= {time}
                         />
-                ))
+
+                    )     
+            
+                    }
+                       
+                    )
+            
+                
+                
             }
             </section>
         );

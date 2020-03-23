@@ -9,11 +9,13 @@ import compass from '../assets/icon/icon-compass.png';
 
 function WeatherCondition(props){
   const { cityName, current, unit } = props;
+  const temperature = 
+    unit === 'C' ? current.maxCelsius : current.maxFahrenheit
 
     return(
         <section className = "weather-condition">
           <div className="weather-condition__location">{ cityName }</div>
-    <div className="weather-condition__temp">{ current.maxCelsius } { unit }</div>
+    <div className="weather-condition__temp">{ temperature } { unit }</div>
           <div className="weather-condition__desc">
             <div>
               <img src={umberella} alt='umberella icon'/>

@@ -20,7 +20,9 @@ function Navigation(props){
             <i className="fa fa-search"></i>
           </button>
 
-          <button className="temp-switch">
+          <button 
+          onClick={ props.toggleDegree }
+          className="temp-switch">
             <i
               className="fa fa-thermometer-empty"
               aria-hidden="true"
