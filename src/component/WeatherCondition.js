@@ -8,6 +8,7 @@ import compass from '../assets/icon/icon-compass.png';
 
 
 function WeatherCondition(props){
+  //destruct props locally
   const { cityName, current, unit } = props;
   const temperature = 
     unit === 'C' ? current.maxCelsius : current.maxFahrenheit
