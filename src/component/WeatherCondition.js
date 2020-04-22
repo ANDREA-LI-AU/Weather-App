@@ -12,10 +12,10 @@ function WeatherCondition(props){
   const { cityName, current, unit } = props;
   const temperature = 
     unit === 'C' ? current.maxCelsius : current.maxFahrenheit
-
+  const city = cityName.toLowerCase();
     return(
         <section className = "weather-condition">
-          <div className="weather-condition__location">{ cityName }</div>
+          <div className="weather-condition__location" style={{textTransform: 'capitalize'}}>{ city }</div>
     <div className="weather-condition__temp">{ temperature } { unit }</div>
           <div className="weather-condition__desc">
             <div>

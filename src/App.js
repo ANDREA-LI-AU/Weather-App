@@ -23,7 +23,6 @@ class App extends React.Component {
 
 
 async componentDidMount(){
-    //加载，发请求
     // axios.get('https://jr-weather-api.herokuapp.com/api/weather?city=brisbane&&cc=au')
     //     .then(response => {
     //         const rawforecasts = response.data.data.forecast.slice(0, 10);
@@ -54,7 +53,6 @@ async componentDidMount(){
 
 
 updateWeather = (response) => {
-  console.log(response);
   const cityName = this.state.cityName;
   const current = response.data.data.current;
   const unit = this.state.unit;
